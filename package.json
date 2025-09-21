@@ -1,37 +1,43 @@
 {
-  "name": "react-old-icons",
-  "version": "1.1.0",
-  "description": "Old Windows icons as React components",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "name": "react-old-icons-browser",
+  "productName": "React Old Icons Browser",
+  "version": "1.0.0",
+  "description": "Desktop app for browsing React Old Icons",
+  "main": "main.js",
   "scripts": {
-    "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "keywords": [
-    "react",
-    "icons",
-    "windows",
-    "old",
-    "vintage",
-    "ui"
-  ],
+  "keywords": ["electron", "react", "icons", "vintage"],
   "author": "gsnoopy",
   "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.8.0"
-  },
   "devDependencies": {
-    "@types/react": "^18.3.24",
-    "react": "^19.1.1",
-    "typescript": "^5.0.0"
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gsnoopy/react-old-icons.git"
-  },
-  "homepage": "https://gsnoopy.github.io/react-old-icons/"
+  "build": {
+    "appId": "com.gsnoopy.react-old-icons",
+    "productName": "React Old Icons Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "page/**/*"
+    ],
+    "mac": {
+      "icon": "page/app-icon.icns",
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "icon": "page/favicon.ico",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "page/favicon.ico",
+      "target": "AppImage"
+    }
+  }
 }
