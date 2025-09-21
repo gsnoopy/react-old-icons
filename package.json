@@ -8,14 +8,23 @@
     "start": "electron .",
     "dev": "NODE_ENV=development electron .",
     "build": "electron-builder",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
     "postinstall": "electron-builder install-app-deps"
   },
-  "keywords": ["electron", "react", "icons", "vintage"],
+  "keywords": [
+    "electron",
+    "react",
+    "icons",
+    "vintage"
+  ],
   "author": "gsnoopy",
   "license": "MIT",
   "devDependencies": {
     "electron": "^27.0.0",
-    "electron-builder": "^24.6.4"
+    "electron-builder": "^24.6.4",
+    "electron-builder-notarize": "^1.5.2"
   },
   "build": {
     "appId": "com.gsnoopy.react-old-icons",
@@ -32,12 +41,32 @@
       "category": "public.app-category.developer-tools"
     },
     "win": {
-      "icon": "page/favicon.ico",
-      "target": "nsis"
+      "icon": "page/app-icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64", "ia32"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64", "ia32"]
+        }
+      ],
+      "requestedExecutionLevel": "asInvoker"
     },
     "linux": {
-      "icon": "page/favicon.ico",
-      "target": "AppImage"
+      "icon": "page/app-icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "Development"
     }
   }
 }
