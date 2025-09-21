@@ -1,0 +1,43 @@
+{
+  "name": "react-old-icons-browser",
+  "productName": "React Old Icons Browser",
+  "version": "1.0.0",
+  "description": "Desktop app for browsing React Old Icons",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron .",
+    "build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": ["electron", "react", "icons", "vintage"],
+  "author": "gsnoopy",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.gsnoopy.react-old-icons",
+    "productName": "React Old Icons Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "page/**/*"
+    ],
+    "mac": {
+      "icon": "page/app-icon.icns",
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "icon": "page/favicon.ico",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "page/favicon.ico",
+      "target": "AppImage"
+    }
+  }
+}

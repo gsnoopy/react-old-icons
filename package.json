@@ -1,6 +1,6 @@
 {
   "name": "react-old-icons",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Old Windows icons as React components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,5 +32,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gsnoopy/react-old-icons.git"
-  }
+  },
+  "homepage": "https://gsnoopy.github.io/react-old-icons/"
 }
